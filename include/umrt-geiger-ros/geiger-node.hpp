@@ -11,7 +11,7 @@
 class GeigerNode: public rclcpp::Node {
 public:
     /**
-     * Constructs an ExampleNode.
+     * Constructs Gieger ROS Node.
      */
     GeigerNode();
 
