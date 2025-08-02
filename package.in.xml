@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>umrt_geiger_ros</name>
+  <name>umrt-geiger-ros</name>
   <version>@version_input@</version> <!-- Version number parsed from version file, replaced here by CMake -->
   <description>*ROS Node for publishing messages for a geiger counter</description>
   <maintainer email="todujinrin@gmail.com">Toni Odujinrin</maintainer>

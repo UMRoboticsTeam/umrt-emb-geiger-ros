@@ -3,6 +3,7 @@
 
 #include "umrt_geiger_interface/geiger.hpp"
 #include <rclcpp/rclcpp.hpp>
+#include std_msgs/msg/float32.hpp
 
 /**
  * This is an example node provided to demonstrate file structure and CMake configuration.
@@ -15,10 +16,8 @@ public:
     GeigerNode();
 
 private: 
-    Geiger geiger_instance; 
-    rclcpp::Publisher<std_msgs::msg::string>::SharedPtr geiger_publisher; 
-    rclcpp::TimerBase::SharedPtr timer; 
-    std::chrono::duration<int,std::milli> timer_duration{}; 
+    std::shared_ptr<Geiger> geiger{nullptr}; 
+    rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr geiger_publisher; 
 }
   
 

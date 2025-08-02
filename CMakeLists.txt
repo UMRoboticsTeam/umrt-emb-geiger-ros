@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(********** Fill in project name **********)
+project(umrt-geiger-ros)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -14,6 +14,8 @@ include_directories(SYSTEM /opt/ros/$ENV{ROS_DISTRO}/include)
 set(THIS_PACKAGE_INCLUDE_DEPENDS
         rclcpp
         rclcpp_lifecycle
+        std_msgs
+        umrt-geiger-driver
         )
 
 # find dependencies
@@ -23,8 +25,8 @@ foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
 endforeach()
 
 add_executable(${PROJECT_NAME}
-    src/project_name.cpp
-    src/example_node.cpp
+    src/umrt-geiger-ros.cpp
+    src/geiger-node.cpp
 )
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -35,6 +37,7 @@ ament_target_dependencies(
         ${PROJECT_NAME} PUBLIC
         ${THIS_PACKAGE_INCLUDE_DEPENDS}
 )
+target_link_libraries(${PROJECT_NAME} PRIVATE umrt-geiger-driver)
 
 # Parse version number from the file
 file(READ "version" version_input)
